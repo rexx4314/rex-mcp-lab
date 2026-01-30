@@ -1,0 +1,15 @@
+### 내부 상태 조회 (정상)
+GET http://localhost:3001/internal/info
+Accept: application/json
+
+### 지연 테스트 (3초)
+GET http://localhost:3001/internal/sleep?ms=3000
+Accept: application/json
+
+### 강제 실패 (500)
+GET http://localhost:3001/internal/fail?code=500
+Accept: application/json
+
+### 잘못된 요청 (400)
+GET http://localhost:3001/internal/fail?code=400
+Accept: application/json

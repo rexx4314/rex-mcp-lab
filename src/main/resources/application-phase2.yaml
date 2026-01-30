@@ -1,0 +1,48 @@
+server:
+  port: 3002
+
+spring:
+  main:
+    banner-mode: "off"
+    web-application-type: servlet
+
+  datasource:
+    url: jdbc:h2:mem:mcplab;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      timeout: 2s
+
+  ai:
+    mcp:
+      server:
+        protocol: STREAMABLE
+        name: rex-mcplab-lab-phase2
+        version: 0.0.1
+        type: SYNC
+        request-timeout: 5s
+        streamable-http:
+          mcp-endpoint: /mcplab
+          disallow-delete: true
+
+logging:
+  level:
+    root: INFO

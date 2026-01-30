@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: rex-mcp-lab
+
+logging:
+  level:
+    root: INFO
+    dev.rex.mcplab: INFO

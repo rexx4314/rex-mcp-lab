@@ -1,0 +1,23 @@
+### Git status (ReadOnly)
+GET http://127.0.0.1:3003/internal/git/status
+Accept: application/json
+
+### Sandbox write - 승인 없이 (403 기대)
+POST http://127.0.0.1:3003/internal/sandbox/write?approval=wrong&filename=note.txt
+Content-Type: text/plain
+
+hello phase3
+
+### Sandbox write - 승인 정상 (200 기대)
+POST http://127.0.0.1:3003/internal/sandbox/write?approval=dev-approve-1234&filename=note.txt
+Content-Type: text/plain
+
+hello phase3
+
+### Sandbox read (200 기대)
+GET http://127.0.0.1:3003/internal/sandbox/read?filename=note.txt
+Accept: application/json
+
+### Sandbox read - 허용되지 않은 파일명 (403 기대)
+GET http://127.0.0.1:3003/internal/sandbox/read?filename=evil.bat
+Accept: application/json

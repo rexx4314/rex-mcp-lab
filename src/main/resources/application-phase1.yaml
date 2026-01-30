@@ -1,0 +1,15 @@
+server:
+  port: 3001
+
+spring:
+  ai:
+    mcp:
+      server:
+        protocol: STREAMABLE
+        name: rex-mcplab-lab-streamable
+        version: 0.0.1
+        type: SYNC
+        request-timeout: 5s
+        streamable-http:
+          mcp-endpoint: /mcplab
+          disallow-delete: true

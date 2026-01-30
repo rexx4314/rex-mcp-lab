@@ -1,0 +1,19 @@
+### Notes 검색 (기본)
+GET http://localhost:3002/internal/notes?q=&page=0&size=10
+Accept: application/json
+
+### Notes 검색 (검색어)
+GET http://localhost:3002/internal/notes?q=spring&page=0&size=10
+Accept: application/json
+
+### size 제한 확인 (999 -> 50으로 잘려야 함)
+GET http://localhost:3002/internal/notes?q=&page=0&size=999
+Accept: application/json
+
+### Note 단건 조회 (id=1)
+GET http://localhost:3002/internal/notes/1
+Accept: application/json
+
+### Redis ping (쓰기 없이)
+GET http://localhost:3002/internal/redis/ping
+Accept: application/json

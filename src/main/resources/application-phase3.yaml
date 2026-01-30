@@ -1,0 +1,43 @@
+server:
+  port: 3003
+
+spring:
+  main:
+    banner-mode: "off"
+    web-application-type: servlet
+
+  ai:
+    mcp:
+      server:
+        protocol: STREAMABLE
+        name: rex-mcplab-lab-phase3
+        version: 0.0.1
+        type: SYNC
+        request-timeout: 5s
+        streamable-http:
+          mcp-endpoint: /mcplab
+          disallow-delete: true
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+  sql:
+    init:
+      mode: never
+
+logging:
+  level:
+    root: INFO
+
+mcplab:
+  phase3:
+    repo-root: "C:/!REX/WORKSPACE/rex-mcp-lab"
+    sandbox-dir: "C:/!REX/WORKSPACE/rex-mcp-lab/.sandbox"
+    approval-token: "dev-approve-1234"
+    max-bytes: 4096
+    allowed-filenames:
+      - "note.txt"
+      - "report.json"
+      - "audit.log"
