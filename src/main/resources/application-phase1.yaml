@@ -13,3 +13,6 @@ spring:
         streamable-http:
           mcp-endpoint: /mcplab
           disallow-delete: true
+
+  jpa:
+    defer-datasource-initialization: true
